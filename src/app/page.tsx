@@ -1,8 +1,11 @@
-import { Text } from "@chakra-ui/react";
+import Structure from "@/components/structure";
+import { Flex, Spinner, Text } from "@chakra-ui/react";
 
 const Page = () => {
   return(
-    <Text>Hello World!</Text>
+    <Structure>
+      <Spinner />
+    </Structure>
   );
 }
 
