@@ -1,4 +1,5 @@
-import { Card, CardHeader, CardBody, CardFooter, Text, Image, Heading, Stack } from '@chakra-ui/react'
+import { limitString } from '@/helpers/stringHelper'
+import { Card, CardHeader, CardBody, CardFooter, Text, Image, Heading, Stack, Flex } from '@chakra-ui/react'
 
 export type HeroCardProps = {
     characterName:string
@@ -8,18 +9,21 @@ export type HeroCardProps = {
 }
 
 const HeroCard = ({characterDescription, characterImage, characterName}:HeroCardProps) => {
+
+    const maxLength = 88
+
     return(
-        <Card maxW='sm'>
+        <Card maxW='390px' maxH='289px'>
+            <Image
+            src={characterImage}
+            alt={characterName}
+            borderTopRadius={'lg'}
+            />
             <CardBody>
-                <Image
-                src={characterImage}
-                alt='Green double couch with wooden legs'
-                borderRadius='lg'
-                />
-                <Stack mt='6' spacing='3'>
+                <Stack>
                     <Heading size='md'>{characterName}</Heading>
                     <Text>
-                        {characterDescription}
+                        {limitString({value:characterDescription, maxLength})}
                     </Text>
                 </Stack>
             </CardBody>
