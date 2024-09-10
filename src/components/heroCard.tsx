@@ -1,5 +1,5 @@
 import { limitString } from '@/helpers/stringHelper'
-import { Card, CardHeader, CardBody, CardFooter, Text, Image, Heading, Stack, Flex } from '@chakra-ui/react'
+import { Card, CardBody, Text, Image, Heading, Stack } from '@chakra-ui/react'
 
 export type HeroCardProps = {
     characterName:string
@@ -13,7 +13,7 @@ const HeroCard = ({characterDescription, characterImage, characterName}:HeroCard
     const maxLength = 88
 
     return(
-        <Card maxW='390px' maxH='289px'>
+        <Card maxW='390px' minH='289px' h={'auto'}>
             <Image
             src={characterImage}
             alt={characterName}
