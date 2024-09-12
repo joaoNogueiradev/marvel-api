@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import { Providers } from "./providers";
+import { MarvelProvider } from "@/context/MarvelContext";
 
 const mulish = Mulish({ subsets: ["latin"] });
 
@@ -17,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mulish.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <MarvelProvider>
+            {children}
+          </MarvelProvider>
+        </Providers>
       </body>
     </html>
   );
