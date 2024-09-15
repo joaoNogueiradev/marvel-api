@@ -2,10 +2,7 @@ import { Hero } from "@/models/Hero";
 import { IMarvelService } from "@/models/IMarvelService";
 import { marvelInstance } from "./instances/marvelInstance";
 import md5 from "md5";
-import { AxiosResponse } from "axios";
 import { GetCharacters } from "@/models/response/getCharacters";
-
-type GetCharactersRequest = AxiosResponse<GetCharacters>;
 
 export class MarvelService implements IMarvelService {
   private PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_API_KEY as string;
@@ -17,7 +14,7 @@ export class MarvelService implements IMarvelService {
   async fetchAllHeroes(): Promise<Hero[]> {
     try {
       const endpoint = `/characters?ts=${this.currentTime}&apikey=${this.PUBLIC_KEY}&hash=${this.hash}&limit=100`;
-      const { data: response } = await marvelInstance.get<GetCharactersRequest>(
+      const { data: response } = await marvelInstance.get<GetCharacters>(
         endpoint
       );
 
