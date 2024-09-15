@@ -5,19 +5,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v4
+    steps:
+      - name: Check Repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with: 
-        node-version: 22.5.x
-      
-    - name: Install Dependencies
-      uses: npm install
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 22.5.x
+        
+      - name: Install Dependencies
+        uses: npm install
 
-    - name: Run Typecheck
-      uses: npm run typecheck
+      - name: Run Typecheck
+        uses: npm run typecheck
 
-    - name: Run Build
-      uses: npm run build
+      - name: Run Build
+        uses: npm run build
