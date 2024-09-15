@@ -22,7 +22,14 @@ const HeroCard = ({
       : "Not Available";
 
   return (
-    <Card w="390px" minH="289px" h={"auto"}>
+    <Card
+      w={{
+        base: "100%",
+        lg: "360px",
+      }}
+      minH="289px"
+      h={"auto"}
+    >
       <Image
         maxH={"195px"}
         objectFit={"cover"}
