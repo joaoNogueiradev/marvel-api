@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --project tsconfig.json"
+    "typecheck": "tsc --project tsconfig.json",
+    "prepare": "husky"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
@@ -28,6 +29,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
+    "husky": "^9.1.6",
     "typescript": "^5"
   }
 }
