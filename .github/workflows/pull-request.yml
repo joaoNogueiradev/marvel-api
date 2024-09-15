@@ -15,10 +15,10 @@ jobs:
           node-version: 22.5.x
         
       - name: Install Dependencies
-        uses: npm install
+        run: npm install
 
       - name: Run Typecheck
-        uses: npm run typecheck
+        run: npm run typecheck
 
       - name: Run Build
-        uses: npm run build
+        run: npm run build
