@@ -1,10 +1,10 @@
 import { AxiosResponse } from "axios";
-import { Hero } from "../Hero";
+import { Comic } from "../Comic";
 
-export type GetCharacters = AxiosResponse<{
+export type GetComics = AxiosResponse<{
   offset: number;
   limit: number;
   total: number;
   count: number;
-  results: Hero[];
+  results: Comic[];
 }>;

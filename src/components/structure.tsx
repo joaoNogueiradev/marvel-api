@@ -4,9 +4,10 @@ import Footer from "./footer";
 
 export type StructureProps = {
   children: React.ReactNode;
+  title: string;
 };
 
-const Structure = ({ children }: StructureProps) => {
+const Structure = ({ children, title }: StructureProps) => {
   return (
     <Flex
       justifyContent={"space-between"}
@@ -21,7 +22,6 @@ const Structure = ({ children }: StructureProps) => {
         />
         <Flex textAlign={"left"} p={"8px"} flex={1}>
           <Text
-            // p={'0 242px'}
             w={"100%"}
             fontWeight={"bold"}
             fontSize={"24px"}
@@ -29,13 +29,8 @@ const Structure = ({ children }: StructureProps) => {
               base: "0",
               md: "0 242px",
             }}
-            //     m={{
-            //       base: "values",
-            //     //   lg: "26px 1165px 10px 250px",
-            //     }}
-            // paddingInline={'250px'}
           >
-            All Characters
+            {title}
           </Text>
         </Flex>
         <Flex

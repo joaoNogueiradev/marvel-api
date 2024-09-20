@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import { useMarvelService } from "@/context/MarvelContext"
-import { Hero } from "@/models/Hero"
-import { useEffect, useState } from "react"
+import { useMarvelService } from "@/context/MarvelContext";
+import { Hero } from "@/models/Hero";
+import { useEffect, useState } from "react";
 
 export const useMarvelActions = () => {
-    const marvelService = useMarvelService()
-    const [heroes, setHeroes] = useState<Hero[]>([])
-    const isLoading = heroes.length <= 0
+  const marvelService = useMarvelService();
+  const [heroes, setHeroes] = useState<Hero[]>([]);
+  const isLoading = heroes.length <= 0;
 
-    const fetchHeroes = async () => {
-        const results = await marvelService.fetchAllHeroes()
-        setHeroes(results)
-    }
+  const fetchHeroes = async () => {
+    const results = await marvelService.fetchAllHeroes();
+    setHeroes(results);
+  };
 
-    useEffect(() => {
-        fetchHeroes()
-    }, [])
+  useEffect(() => {
+    fetchHeroes();
+  }, []);
 
-    return {
-        isLoading,
-        heroes
-    }
-}
+  return {
+    isLoading,
+    heroes,
+  };
+};

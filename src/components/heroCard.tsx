@@ -1,13 +1,16 @@
 import { limitString } from "@/helpers/stringHelper";
-import { Card, CardBody, Text, Image, Heading, Stack } from "@chakra-ui/react";
+import { Card, CardBody, Image, Heading, Stack } from "@chakra-ui/react";
+import CustomButton from "./CustomButton";
 
 export type HeroCardProps = {
+  id: number;
   characterName: string;
   characterImage: string;
   characterDescription: string;
 };
 
 const HeroCard = ({
+  id,
   characterDescription,
   characterImage,
   characterName,
@@ -40,7 +43,17 @@ const HeroCard = ({
       <CardBody>
         <Stack>
           <Heading size="md">{characterName}</Heading>
-          <Text>{formattedDescription}</Text>
+          <CustomButton
+            buttonTitle="Click to see full description"
+            href="detailed"
+            heroId={id}
+          />
+          <CustomButton
+            buttonTitle="Click to see character comics!"
+            href="comics"
+            heroId={id}
+          />
+          {/* <Text>{formattedDescription}</Text> */}
         </Stack>
       </CardBody>
     </Card>

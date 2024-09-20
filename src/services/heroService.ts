@@ -1,10 +1,10 @@
 import { Hero } from "@/models/Hero";
-import { IMarvelService } from "@/models/IMarvelService";
-import { marvelInstance } from "./instances/marvelInstance";
+import { IHeroService } from "@/models/IHeroService";
+import { heroInstance } from "./instances/heroInstance";
 import md5 from "md5";
 import { GetCharacters } from "@/models/response/getCharacters";
 
-export class MarvelService implements IMarvelService {
+export class HeroService implements IHeroService {
   private PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_API_KEY as string;
   private PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_API_KEY as string;
 
@@ -14,7 +14,7 @@ export class MarvelService implements IMarvelService {
   async fetchAllHeroes(): Promise<Hero[]> {
     try {
       const endpoint = `/characters?ts=${this.currentTime}&apikey=${this.PUBLIC_KEY}&hash=${this.hash}&limit=100`;
-      const { data: response } = await marvelInstance.get<GetCharacters>(
+      const { data: response } = await heroInstance.get<GetCharacters>(
         endpoint
       );
 

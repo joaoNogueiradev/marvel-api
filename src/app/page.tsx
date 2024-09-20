@@ -9,15 +9,16 @@ const Page = () => {
   const { heroes, isLoading } = useMarvelActions();
 
   return (
-    <Structure>
+    <Structure title="All Characters">
       {isLoading && <Spinner />}
       {heroes?.map((hero) => {
         return (
           <HeroCard
             key={hero.id}
+            id={hero.id}
             characterName={hero.name}
             characterImage={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-            characterDescription={hero.description ?? "Not Available"} 
+            characterDescription={hero.description ?? "Not Available"}
           />
         );
       })}
