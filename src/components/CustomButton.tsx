@@ -1,18 +1,22 @@
+"use client";
+
 import { Button as ChakraButton } from "@chakra-ui/react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export type ButtonProps = {
   buttonTitle: string;
   href: string;
-  heroId: number;
+  state?: Record<string, any>;
 };
 
-const CustomButton = ({ buttonTitle, href, heroId }: ButtonProps) => {
-  return (
-    <Link href={`/${href}/${heroId}`}>
-      <ChakraButton>{buttonTitle}</ChakraButton>
-    </Link>
-  );
+const CustomButton = ({ buttonTitle, href, state }: ButtonProps) => {
+  const router = useRouter();
+  const handleNextPage = () => {
+    localStorage.setItem("selectedHero", JSON.stringify(state));
+    router.push(href);
+  };
+
+  return <ChakraButton onClick={handleNextPage}>{buttonTitle}</ChakraButton>;
 };
 
 export default CustomButton;

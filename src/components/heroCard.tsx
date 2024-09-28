@@ -24,6 +24,13 @@ const HeroCard = ({
         })
       : "Not Available";
 
+  const heroObject = {
+    characterName,
+    characterDescription,
+    characterImage,
+    id,
+  };
+
   return (
     <Card
       w={{
@@ -45,13 +52,12 @@ const HeroCard = ({
           <Heading size="md">{characterName}</Heading>
           <CustomButton
             buttonTitle="Click to see full description"
-            href="detailed"
-            heroId={id}
+            state={heroObject}
+            href={`/description`}
           />
           <CustomButton
             buttonTitle="Click to see character comics!"
-            href="comics"
-            heroId={id}
+            href={`/comics/${id}`}
           />
           {/* <Text>{formattedDescription}</Text> */}
         </Stack>

@@ -1,5 +1,5 @@
 import { Comic } from "./Comic";
 
 export interface IComicsService {
-  fetchHeroComicsById(heroId: number): Promise<Comic[]>;
+  fetchComicsByHeroId(heroId: number): Promise<Comic[]>;
 }

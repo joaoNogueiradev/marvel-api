@@ -11,7 +11,7 @@ export class ComicService implements IComicsService {
   private currentTime = Number(new Date());
   private hash = md5(this.currentTime + this.PRIVATE_KEY + this.PUBLIC_KEY);
 
-  async fetchHeroComicsById(heroId: number): Promise<Comic[]> {
+  async fetchComicsByHeroId(heroId: number): Promise<Comic[]> {
     try {
       const endpoint = `/characters/${heroId}/comics?ts=${this.currentTime}&apikey=${this.PUBLIC_KEY}&hash=${this.hash}&limit=100`;
       const { data: response } = await heroInstance.get<GetComics>(endpoint);

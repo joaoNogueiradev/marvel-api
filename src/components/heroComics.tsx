@@ -1,22 +1,20 @@
 import { Image, Text } from "@chakra-ui/react";
 
 export type HeroComicsProps = {
-  heroId: number;
+  comicImage: string;
+  comicName: string;
 };
 
-const HeroComics = ({ heroId }: HeroComicsProps) => {
+const HeroComics = ({ comicName, comicImage }: HeroComicsProps) => {
   return (
-    <Text>{heroId}</Text>
-    // <Image
-    //   minH="450px"
-    //   h={"auto"}
-    //   maxH={"195px"}
-    //   objectFit={"cover"}
-    //   alt="adasdad"
-    //   src={
-    //     "https://sm.ign.com/t/ign_br/screenshot/b/bthe-aveng/bthe-avengers-vol-1-223bbrbrbdrawn-byb-ed-hanniganbrbrthe-no_ywp2.600.jpg"
-    //   }
-    // />
+    <Image
+      minH="450px"
+      h={"auto"}
+      maxH={"195px"}
+      objectFit={"cover"}
+      alt={comicName}
+      src={comicImage}
+    />
   );
 };
 

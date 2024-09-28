@@ -2,16 +2,22 @@
 
 import HeroComics from "@/components/heroComics";
 import Structure from "@/components/structure";
-import { Spinner } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { ComicService } from "@/services/comicService";
+import { Text } from "@chakra-ui/react";
+import { useParams, useRouter } from "next/navigation";
 
 const Comics = () => {
-  const router = useRouter();
-  const { heroId } = router.query;
+  const router = useParams();
+  const heroId = Number(router.heroId);
+  const comicService = new ComicService();
+  comicService.fetchComicsByHeroId(heroId).then((response) => {
+    console.log(response);
+  });
 
   return (
     <Structure title="Comics">
-      <HeroComics heroId={Number(heroId)} />
+      <Text>adadsadada</Text>
+      {/* <HeroComics heroId={Number(heroId)} /> */}
     </Structure>
   );
 };
